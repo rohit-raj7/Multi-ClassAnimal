@@ -100,5 +100,7 @@ Promotes tech-for-good in the conservation domain.
 ## Alert Output
 - WebSite Quick Demo:- [([https://drive.google.com/file/d/1S8TOoh9hTh7WAUCdIvk-cJzlFV27jHjn/view](https://drive.google.com/file/d/1RCzK3JOSj1GIIBbq-3KyW03KidAiCSh9/view?usp=sharing))](https://drive.google.com/file/d/1RCzK3JOSj1GIIBbq-3KyW03KidAiCSh9/view?usp=sharing)
 - Alert sent to email
+- ![Uploading image.png…]()
+
 - ![image](https://github.com/Naveenlingala/Wildlife-Conservation-Project/assets/60232407/f3c55d94-10f1-4655-935d-d9a14aaf263c)
 
