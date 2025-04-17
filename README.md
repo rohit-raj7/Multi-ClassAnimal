@@ -1,43 +1,102 @@
-# Wildlife Conservation Detection System
+🐾 Multi-Class Animal Recognition for Wildlife Conservation
+A deep learning-based system for automated recognition of animal species from images, designed to support wildlife conservation efforts using scalable AI tools and lightweight APIs.
 
-This repository contains a Wildlife Conservation Detection System that utilizes machine learning techniques to detect animals, people, and potential intruders in a wildlife sanctuary. The system is designed to enhance the conservation efforts by monitoring wildlife activities and ensuring the safety of both animals and personnel.
+✅ Project Overview
+Built to classify multiple animal species captured in wildlife sanctuaries, forests, or reserves.
 
-## Model Development
+Aims to assist biodiversity monitoring, species mapping, and poaching prevention.
 
-The Machine Learning model was developed using the YOLO (You Only Look Once) technique, a popular object detection algorithm. It was trained using datasets from roboflow and Kaggle, which provide diverse and comprehensive data for effective training. To further improve prediction accuracy and overall quality, a multi-model architecture was implemented.
+Developed using PyTorch, FastAPI, and Streamlit.
 
-The system consists of three distinct models:
+🧠 Core Technologies
+Model: ResNet50 (pretrained on ImageNet, fine-tuned on a custom wildlife dataset).
 
-1) **Animal and People Detection Model**: This model is based on YOLOv5 and utilizes Microsoft MegaDetector. It has been trained to detect both animals and people within a given frame. By accurately identifying these entities, the system gains a comprehensive understanding of the wildlife sanctuary's dynamics.
+Backend API: FastAPI for high-performance inference endpoints.
 
-2) **Personal Protective Equipment (PPE) Detection Model**: Built on YOLOv8 using  [Robolow dataset](https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety/dataset/30), this model specializes in identifying PPE kits such as hard hats and vests. It plays a crucial role in ensuring the safety of individuals within the sanctuary. If someone is detected without the required PPE, they are flagged as potential intruders or poachers.
+Frontend: Streamlit for easy visualization and demo purposes.
 
-3) **Animal Species Identification Model**: Currently under development, this model focuses on identifying the species of animals captured in the frames. By leveraging a custom labeled dataset and YOLOv8, the system aims to raise an alert when both predator and prey species are detected together. This feature is particularly valuable in identifying situations where endangered prey animals may be under threat from predators.
+Optional Deployment: Docker-ready architecture for scalable use.
 
-## System Workflow
+🐅 Model Details
+The ResNet50 model was trained on labeled images of animals such as:
 
-The Wildlife Conservation Detection System follows a specific workflow for accurate detection and analysis:
+Elephant
 
-1) Image or frame extraction: Using OpenCV's video or webcam capabilities, frames are extracted from the video stream or live feed.
+Leopard
 
-2) Animal and people detection: Each frame is sent to the first model, which identifies and localizes animals and people. The model provides coordinates for each detection.
+Panda
 
-3) Separation of coordinates: The coordinates of animals and people are separated into two distinct arrays for further processing.
+Lion
 
-4) PPE detection: The array containing the coordinates of people is passed to the second model, which determines whether individuals are wearing the necessary PPE, including hard hats and vests. This step helps identify potential intruders or individuals who may pose a risk to wildlife or themselves.
+Rhino
 
-5) Animal species identification: The array containing the coordinates of animals is sent to the third model for species identification. Currently, the model has been trained on a limited set of animal species, including Elephant, Leopard, Chimpanzee, Jaguar, Lion, Panda, and Rhino. Future enhancements aim to expand the model's capabilities to cover a wider range of species.
+Jaguar
 
-## Challenges Faced and how they were tackled
+Chimpanzee
 
-During the development of the detection system, the following challenges were encountered and effectively addressed:
+Training involved standard image classification techniques with data augmentation for robustness.
 
-1) **Limited training time and resources**: With the constraints of a 36-hour hackathon, there were limitations in terms of training time and available resources. To overcome this challenge, the focus was narrowed down to training the models specifically for a critical set of animal species. This approach ensured optimal utilization of the available time and resources.
+Achieves high accuracy on test sets with top-1 prediction confidence.
 
-2) **Model performance and accuracy**: Ensuring high performance and accuracy of the models is essential for reliable detection. To address this challenge, a multi-model architecture was implemented. Leveraging Microsoft MegaDetector's exceptional accuracy in detecting animals and people, unnecessary information in the image was reduced by extracting only animal coordinates. This significantly improved the accuracy of both the first and third models.
+🔗 FastAPI Backend Features
+Exposes a /predict API endpoint for image classification.
 
-By strategically tackling these challenges and maximizing the available resources, the Wildlife Conservation Detection System was successfully developed within the hackathon's constraints.
+Accepts image files (or base64) and returns:
 
+Predicted species
+
+Confidence score
+
+Handles pre-processing: resizing, normalization, and tensor conversion.
+
+Lightweight and fast, suitable for edge and cloud deployment.
+
+🎛️ Streamlit Frontend Features
+User-friendly UI for uploading images and receiving predictions.
+
+Real-time feedback for conservation researchers or field teams.
+
+Can be extended with maps, image galleries, or logs of predictions.
+
+🛠️ System Workflow
+User uploads or streams an image.
+
+Image is sent to FastAPI backend.
+
+Model runs inference using ResNet50.
+
+Prediction and confidence score are returned.
+
+Streamlit frontend displays the result in real time.
+
+🚀 Future Enhancements
+Add support for YOLOv8 for object detection with bounding boxes.
+
+Implement predator-prey co-occurrence alerts.
+
+Expand the animal species database.
+
+Integrate with a dashboard for historical tracking and heatmaps.
+
+Containerize with Docker for deployment on edge devices (e.g., forest cams, drones).
+
+🧩 Potential Use Cases
+Real-time monitoring in wildlife reserves.
+
+Supporting forest rangers in anti-poaching efforts.
+
+Educational tools for biology students and researchers.
+
+Integration into larger conservation alert systems.
+
+💡 Key Benefits
+Accurate and fast classification of animal species.
+
+Easy to deploy and integrate with existing systems.
+
+Open-source and extendable architecture.
+
+Promotes tech-for-good in the conservation domain.
 ## Alert Output
 - WebSite Quick Demo:- (https://drive.google.com/file/d/1S8TOoh9hTh7WAUCdIvk-cJzlFV27jHjn/view)
 - Alert sent to email
